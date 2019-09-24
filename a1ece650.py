@@ -28,7 +28,7 @@ def main():
             line = sys.stdin.readline()
             if line != '\n':  # just hit enter will not check anything, prevent index out of range
                 checkCommand(line)
-            
+
             # print 'read a line:', line
 
         except Exception as exp:
@@ -108,7 +108,7 @@ def produceOutput():
     vertexList, edgeList = calculateGraph.produceVertexOutput(streetList)
 
     # Produce vertex list string specified in assignment 1
-    vertexOutputString = "V={\n"
+    vertexOutputString = "V = {\n"
     for i in range(len(vertexList)):
         coordX = outputDecimalFormating(vertexList[i][0])
         coordY = outputDecimalFormating(vertexList[i][1])
@@ -117,7 +117,7 @@ def produceOutput():
     print(vertexOutputString, file = sys.stdout)
 
     # Produce edge list string specified in assignment 1
-    edgeOutputString = "E={\n"
+    edgeOutputString = "E = {\n"
     for i in range(len(edgeList)):
         pointOne = edgeList[i][0]
         pointTwo = edgeList[i][1]
