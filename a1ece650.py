@@ -28,7 +28,7 @@ def main():
             line = sys.stdin.readline()
             if line != '\n':  # just hit enter will not check anything, prevent index out of range
                 checkCommand(line)
-            printStreetList()
+            
             # print 'read a line:', line
 
         except Exception as exp:
