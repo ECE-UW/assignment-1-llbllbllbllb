@@ -26,8 +26,8 @@ def main():
     while True:
         try:
             line = sys.stdin.readline()
-            if line != '\n':  # just hit enter will not check anything, prevent index out of range
-                checkCommand(line)
+            # if line != '\n':  # just hit enter will not check anything, prevent index out of range
+            checkCommand(line)
 
             # print 'read a line:', line
 
@@ -38,7 +38,7 @@ def main():
 
 def checkCommand(command):
     # remove all leading white space using .lstrip()
-    command = command.lstrip()
+    # command = command.lstrip()
 
     if checkValid(command):
         if command[0] == 'a':  # add a street
@@ -142,11 +142,11 @@ def outputDecimalFormating(x):
 def checkValid(command):
 
     if len(command) == 0:
-        print("Error: Empty input", file=sys.stderr)
+        print("Error: Empty input, a: add street, c: change street, r: remove street, g: produce output", file=sys.stderr)
         return False
     # for 'a' and 'c':
     if command[0] == 'a' or command[0] == 'c':
-        pattern = re.compile("[ac]\s\s*\"[A-Za-z ]+\"\s\s*(\(\s*[-]?[0-9]+\s*,\s*[-]?[0-9]+\s*\)\s*){2,}")
+        pattern = re.compile("^[ac]\s\s*\"[A-Za-z ]+\"\s\s*(\([-]?[0-9]+,[-]?[0-9]+\)\s*){2,}$")
         result = pattern.match(command)
         if result != None: # Found correct command
             return True
