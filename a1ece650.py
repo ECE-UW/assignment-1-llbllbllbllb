@@ -31,8 +31,8 @@ def main():
 
             # print 'read a line:', line
 
-        except Exception as exp:
-            print("Error: " + str(exp))
+        # except Exception as exp:
+        #     print("Error: " + str(exp))
     # return exit code 0 on successful termination
     sys.exit(0)
 
