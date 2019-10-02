@@ -24,10 +24,12 @@ def main():
     ### make sure to remove all spurious print statements as required
     ### by the assignment
     while True:
-        # try:
-        line = sys.stdin.readline()
+        try:
+            line = sys.stdin.readline()
             # if line != '\n':  # just hit enter will not check anything, prevent index out of range
-        checkCommand(line)
+            checkCommand(line)
+        except EOFError:
+            break
 
             # print 'read a line:', line
 
@@ -141,10 +143,10 @@ def outputDecimalFormating(x):
 
 def checkValid(command):
 
-    if len(command) == 0:
+    if command == "":
         print("Error: Empty input, a: add street, c: change street, r: remove street, g: produce output")
         return False
-    # for 'a' and 'c':
+    #for 'a' and 'c':
     if command[0] == 'a' or command[0] == 'c':
         pattern = re.compile("^[ac]\s\s*\"[A-Za-z ]+\"\s\s*(\([-]?[0-9]+,[-]?[0-9]+\)\s*){2,}$")
         result = pattern.match(command)
