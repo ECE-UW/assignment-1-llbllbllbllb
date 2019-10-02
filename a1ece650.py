@@ -23,17 +23,17 @@ def main():
     ### sample code to read from stdin.
     ### make sure to remove all spurious print statements as required
     ### by the assignment
-    # while True:
-    #     try:
-    #         line = sys.stdin.readline()
-    #         # if line != '\n':  # just hit enter will not check anything, prevent index out of range
-    #         checkCommand(line)
-    #     except EOFError:
-    #         break
+    while True:
+        try:
+            line = raw_input()
+            # if line != '\n':  # just hit enter will not check anything, prevent index out of range
+            checkCommand(line)
+        except EOFError:
+            sys.exit()
 
-    for line in sys.stdin:
-        checkCommand(line)
-    sys.exit()
+    # for line in sys.stdin.readline():
+    #     checkCommand(line)
+    # sys.exit()
 
             # print 'read a line:', line
 
@@ -137,13 +137,14 @@ def produceOutput():
 
 
 def outputDecimalFormating(x):
-    if isinstance(x,float):
-        if x.is_integer():
-            return str(int(x))
-        else:
-            return '{0:.2f}'.format(x)
-    else:
-        return str(x)
+    return '{0:.2f}'.format(x)
+    # if isinstance(x,float):
+    #     if x.is_integer():
+    #         return str(int(x))
+    #     else:
+    #         return '{0:.2f}'.format(x)
+    # else:
+    #     return str(x)
 
 def checkValid(command):
 
