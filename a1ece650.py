@@ -24,16 +24,16 @@ def main():
     ### make sure to remove all spurious print statements as required
     ### by the assignment
     while True:
-        try:
-            line = raw_input()
+        # try:
+        line = sys.stdin.readline()
             # if line != '\n':  # just hit enter will not check anything, prevent index out of range
-            checkCommand(line)
+        checkCommand(line)
 
             # print 'read a line:', line
 
-        # except Exception as exp:
-        #     print("Error: " + str(exp))
-    # return exit code 0 on successful termination
+    #     except Exception as exp:
+    #         print("Error: " + str(exp))
+    # # return exit code 0 on successful termination
     # sys.exit(0)
 
 def checkCommand(command):
