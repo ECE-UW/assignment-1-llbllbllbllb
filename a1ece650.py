@@ -23,13 +23,17 @@ def main():
     ### sample code to read from stdin.
     ### make sure to remove all spurious print statements as required
     ### by the assignment
-    while True:
-        try:
-            line = sys.stdin.readline()
-            # if line != '\n':  # just hit enter will not check anything, prevent index out of range
-            checkCommand(line)
-        except EOFError:
-            break
+    # while True:
+    #     try:
+    #         line = sys.stdin.readline()
+    #         # if line != '\n':  # just hit enter will not check anything, prevent index out of range
+    #         checkCommand(line)
+    #     except EOFError:
+    #         break
+
+    for line in sys.stdin:
+        checkCommand(line)
+    sys.exit()
 
             # print 'read a line:', line
 
