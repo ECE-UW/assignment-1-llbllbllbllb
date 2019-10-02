@@ -32,7 +32,7 @@ def main():
             # print 'read a line:', line
 
         except Exception as exp:
-            print("Error: " + str(exp), file=sys.stderr)
+            print("Error: " + str(exp))
     # return exit code 0 on successful termination
     sys.exit(0)
 
@@ -65,7 +65,7 @@ def addStreet(command):
 
     # Check if input is already in the list
     if streetName[0].lower() in [key.lower() for key in streetList.keys()]:     # Case insensitive
-        print("Error: '" + streetName[0] + "' is already in the list! You can modify this street using 'c'", file=sys.stderr)
+        print("Error: '" + streetName[0] + "' is already in the list! You can modify this street using 'c'")
     else:
         streetList[streetName[0]] = coords    #key is the street name, content is the line segment
         # print('Street successfully added!')
@@ -87,7 +87,7 @@ def changeStreet(command):
             coords = [map(int, j.split(',')) for j in lineSegment]  # Convert list of string to list of coordinates
             streetList[existNameList[i]] = coords   # Replace the line segment with new input
     if foundStreet == False:
-        print("Error: 'c' specified for a street that does not exist.", file=sys.stderr)
+        print("Error: 'c' specified for a street that does not exist.")
 
 
 def removeStreet(command):
@@ -102,7 +102,7 @@ def removeStreet(command):
             del streetList[existNameList[i]]   # Delete from Dictionary
             # print(str(streetList))
     if foundStreet == False:
-        print("Error: 'r' specified for a street that does not exist.", file=sys.stderr)
+        print("Error: 'r' specified for a street that does not exist.")
 
 def produceOutput():
     vertexList, edgeList = calculateGraph.produceVertexOutput(streetList)
@@ -114,7 +114,7 @@ def produceOutput():
         coordY = outputDecimalFormating(vertexList[i][1])
         vertexOutputString += "  {:<4}({},{})\n".format(str(i+1)+":",coordX,coordY)
     vertexOutputString = vertexOutputString + "}"
-    print(vertexOutputString, file = sys.stdout)
+    print(vertexOutputString)
 
     # Produce edge list string specified in assignment 1
     edgeOutputString = "E = {\n"
@@ -127,7 +127,7 @@ def produceOutput():
         else:
             edgeOutputString += "\n"
     edgeOutputString = edgeOutputString + "}"
-    print(edgeOutputString, file = sys.stdout)
+    print(edgeOutputString)
 
 
 def outputDecimalFormating(x):
@@ -142,7 +142,7 @@ def outputDecimalFormating(x):
 def checkValid(command):
 
     if len(command) == 0:
-        print("Error: Empty input, a: add street, c: change street, r: remove street, g: produce output", file=sys.stderr)
+        print("Error: Empty input, a: add street, c: change street, r: remove street, g: produce output")
         return False
     # for 'a' and 'c':
     if command[0] == 'a' or command[0] == 'c':
@@ -151,7 +151,7 @@ def checkValid(command):
         if result != None: # Found correct command
             return True
         else:
-            print("Error: In 'a' or 'c', Your command is not valid, please type again", file=sys.stderr)
+            print("Error: In 'a' or 'c', Your command is not valid, please type again")
             return False
 
     # for 'r':
@@ -161,7 +161,7 @@ def checkValid(command):
         if result != None:
             return True
         else:
-            print("Error: In 'r', Your command is not valid, please type again", file=sys.stderr)
+            print("Error: In 'r', Your command is not valid, please type again")
             return False
 
     elif command[0] == 'g':
@@ -170,11 +170,11 @@ def checkValid(command):
         if result != None:
             return True
         else:
-            print("Error: In 'g', Your command is not valid, please type again", file=sys.stderr)
+            print("Error: In 'g', Your command is not valid, please type again")
             return False
 
     else:
-        print("Error: Your command should start with 'a', 'c', 'r' or 'g', please type again", file=sys.stderr)
+        print("Error: Your command should start with 'a', 'c', 'r' or 'g', please type again")
         return False
 
 
