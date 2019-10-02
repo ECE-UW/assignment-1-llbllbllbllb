@@ -34,7 +34,7 @@ def main():
         # except Exception as exp:
         #     print("Error: " + str(exp))
     # return exit code 0 on successful termination
-    sys.exit(0)
+    # sys.exit(0)
 
 def checkCommand(command):
     # remove all leading white space using .lstrip()
