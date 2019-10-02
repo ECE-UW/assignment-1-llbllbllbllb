@@ -25,7 +25,7 @@ def main():
     ### by the assignment
     while True:
         try:
-            line = sys.stdin.readline()
+            line = raw_input()
             # if line != '\n':  # just hit enter will not check anything, prevent index out of range
             checkCommand(line)
 
